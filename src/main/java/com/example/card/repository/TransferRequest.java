@@ -14,4 +14,30 @@ public class TransferRequest {
         this.cardToNumber = cardToNumber;
         this.amount = amount;
     }
+
+    public String getCardFromNumber() {
+        return cardFromNumber;
+    }
+
+    public String getCardToNumber() {
+        return cardToNumber;
+    }
+
+    public Amount getAmount() {
+        return amount;
+    }
+
+    public class Amount {
+        private int value;
+        private String currency;
+
+        public Amount(int value, String currency) {
+            this.value = value;
+            this.currency = currency;
+        }
+
+        public int getValue() {
+            return value;
+        }
+    }
 }

@@ -1,4 +1,4 @@
-package com.example.card.exception;
+package com.example.card.operations;
 
 public class ErrorResponse {
     private String message;
