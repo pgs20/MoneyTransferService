@@ -27,7 +27,7 @@ public class TransferRequest {
         return amount;
     }
 
-    public class Amount {
+    public static class Amount {
         private int value;
         private String currency;
 

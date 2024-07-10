@@ -8,25 +8,22 @@ import com.example.card.operations.OkResponse;
 import com.example.card.repository.ConfirmOperationRequest;
 import com.example.card.repository.TransferRepository;
 import com.example.card.repository.TransferRequest;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 @Service
+@Slf4j
 public class TransferService {
-    private static final Logger logger = LoggerFactory.getLogger(TransferService.class);
     @Autowired
     private TransferRepository transferRepository;
     public ResponseEntity transfer(TransferRequest transferRequest) {
         try {
             OkResponse okResponse = new OkResponse();
             transferRepository.getRepository().put(okResponse.getOperationId(), transferRequest);
-            logger.info(String.format("Transferred %f from [%s] to [%s]", transferRequest.getAmount().getValue()
-                    , transferRequest.getCardFromNumber()
-                    , transferRequest.getCardToNumber()));
+            log.info("Transferred {} from {} to {}", transferRequest.getAmount().getValue(), transferRequest.getCardFromNumber(), transferRequest.getCardToNumber());
             return ResponseEntity
                     .status(HttpStatus.OK)
                     .body(okResponse);
