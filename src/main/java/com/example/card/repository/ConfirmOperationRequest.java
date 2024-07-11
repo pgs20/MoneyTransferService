@@ -4,6 +4,11 @@ public class ConfirmOperationRequest {
     private String operationId;
     private String code;
 
+    public ConfirmOperationRequest(String operationId, String code) {
+        this.operationId = operationId;
+        this.code = code;
+    }
+
     public String getOperationId() {
         return operationId;
     }
